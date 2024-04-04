@@ -1,125 +1,501 @@
 import 'package:flutter/material.dart';
+import '../utils/Color.dart';
+
+
+
+// 1----> My App
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: seaBlueColor,
+          title: const Text(
+            'My App',
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+          ),
+        ),
+        backgroundColor: royalBlueColor,
+        body: Align(
+          alignment: Alignment.center,
+          child: Container(
+            height: 200,
+            width: 200,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: blackColor,
+              border: Border.all(
+                color: lightBlueColor,
+                width: 9,
+              ),
             ),
-          ],
+            child: Text(
+              '0000',
+              style: TextStyle(
+                  letterSpacing: -22,
+                  fontWeight: FontWeight.w200,
+                  color: lightBlueColor,
+                  fontSize: 100),
+            ),
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
+    ),
+  );
 }
+
+// 2----> Mission of RNW
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           centerTitle: true,
+//           backgroundColor: redColor,
+//           title: const Text(
+//             'Misson of RNW',
+//             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+//           ),
+//         ),
+//         body: Align(
+//           alignment: Alignment.center,
+//           child: Container(
+//             height: 85,
+//             width: 300,
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: melonColor,
+//               border: Border(
+//                 left: BorderSide(color: redColor, width: 9),
+//               ),
+//             ),
+//             child: Text.rich(
+//               TextSpan(
+//                 children: [
+//                   TextSpan(
+//                     text: 'Shaping "skills" for "scalling" higher\n',
+//                     style: TextStyle(
+//                         color: blackColor,
+//                         fontWeight: FontWeight.bold,
+//                         fontSize: 18),
+//                   ),
+//                   TextSpan(
+//                     text: '- RNW',
+//                     style: TextStyle(
+//                         color: blackColor,
+//                         fontSize: 18,
+//                         fontWeight: FontWeight.w400),
+//                   )
+//                 ],
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// 3 -----> Mix-up
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           centerTitle: true,
+//           backgroundColor: redColor,
+//           title: const Text(
+//             'Mix-up',
+//             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+//           ),
+//         ),
+//         body: Align(
+//           child: Container(
+//             alignment: Alignment.bottomRight,
+//             height: 400,
+//             width: 500,
+//             decoration: const BoxDecoration(
+//               color: Colors.blue,
+//             ),
+//             child: Container(
+//               alignment: Alignment.bottomRight,
+//               height: 350,
+//               width: 320,
+//               decoration: const BoxDecoration(
+//                 color: Colors.yellow,
+//               ),
+//               child: Container(
+//                 alignment: Alignment.topLeft,
+//                 height: 300,
+//                 width: 280,
+//                 decoration: const BoxDecoration(
+//                   color: Colors.red,
+//                 ),
+//                 child: Container(
+//                   alignment: Alignment.topLeft,
+//                   height: 250,
+//                   width: 240,
+//                   decoration: const BoxDecoration(
+//                     color: Colors.orange,
+//                   ),
+//                   child: Container(
+//                     alignment: Alignment.center,
+//                     height: 200,
+//                     width: 190,
+//                     decoration: const BoxDecoration(
+//                       color: Colors.green,
+//                     ),
+//                     child: Container(
+//                       height: 145,
+//                       width: 150,
+//                       decoration: const BoxDecoration(
+//                         color: Colors.tealAccent,
+//                       ),
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// 4 -----> Mashal
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           backgroundColor: Colors.brown,
+//           centerTitle: true,
+//           title: const Text(
+//             'Mashal',
+//             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+//           ),
+//         ),
+//         body: Align(
+//           alignment: Alignment.center,
+//           child: Container(
+//             height: 160,
+//             width: 80,
+//             decoration:  BoxDecoration(
+//               color: brownColor,
+//               border: Border.symmetric(
+//                 vertical: const BorderSide(color: Colors.white, width: 15),
+//                 horizontal: BorderSide(
+//                   color: lightBrownColor,
+//                   width: 12,
+//                 ),
+//               ),
+//             ),
+//             alignment: Alignment.topCenter,
+//             child: const Text('🔥',style: TextStyle(fontSize: 40,height: -1.8,fontWeight: FontWeight.w100),),
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// 5 ----> Letter Cover
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           backgroundColor: greenColor,
+//           centerTitle: true,
+//           title: const Text(
+//             'Letter Cover',
+//             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+//           ),
+//         ),
+//         body: Align(
+//           alignment: Alignment.center,
+//           child: Container(
+//             height: 300,
+//             width: 300,
+//             decoration:  BoxDecoration(
+//                color: greenColor,
+//               border: Border.symmetric(
+//                 vertical: BorderSide(color: greenColor, width: 130),
+//                 horizontal: BorderSide(
+//                   color: lightGreenColor,
+//                   width: 130,
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// 6 ----> 3D Cube
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           backgroundColor: tealColor,
+//           centerTitle: true,
+//           title: const Text(
+//             '3D Cube',
+//             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+//           ),
+//         ),
+//         body: Align(
+//           alignment: Alignment.center,
+//           child: Container(
+//             height: 300,
+//             width: 300,
+//             decoration: BoxDecoration(
+//               color: tealColor,
+//               border: Border.symmetric(
+//                 vertical: BorderSide(color: lightTealColor, width: 50),
+//                 horizontal: BorderSide(
+//                   color: lightTeal2Color,
+//                   width: 50,
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// 7 ----> Opened Doors
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           backgroundColor: blackColor,
+//           centerTitle: true,
+//           title: const Text(
+//             'Opened Doors',
+//             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+//           ),
+//         ),
+//         body: Align(
+//           alignment: Alignment.center,
+//           child: Container(
+//             height: 180,
+//             width: 180,
+//             decoration: BoxDecoration(
+//               color: blackColor,
+//               border: Border.symmetric(
+//                 vertical: BorderSide(color: Colors.white70, width: 55),
+//                 horizontal: BorderSide(
+//                   color: blackColor,
+//                   width: 25,
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// 8 ----> Emoji
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           backgroundColor: blackColor,
+//           centerTitle: true,
+//           title: const Text(
+//             'Opened Doors',
+//             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+//           ),
+//         ),
+//         body: Align(
+//           alignment: Alignment.center,
+//           child: Container(
+//             height: 200,
+//             width: 200,
+//             decoration: const BoxDecoration(
+//               color: Colors.orange,
+//               shape: BoxShape.circle,
+//             ),
+//             alignment: Alignment.center,
+//             child: Container(
+//               height: 170,
+//               width: 170,
+//               decoration: const BoxDecoration(
+//                 color: Colors.white,
+//                 shape: BoxShape.circle,
+//               ),
+//                alignment: Alignment.topCenter,
+//               child: Text('🟠',style: TextStyle(fontSize: 160,height: 0.97,color: Colors.orange),)
+//               ),
+//             ),
+//           ),
+//         ),
+//       ),
+//   );
+// }
+
+// 1 -----> Launch Button
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         backgroundColor: blackColor,
+//         appBar: AppBar(
+//           backgroundColor: greenColor,
+//           centerTitle: true,
+//           title: const Text(
+//             'Launch Button',
+//             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+//           ),
+//         ),
+//         body: Align(
+//           alignment: Alignment.center,
+//           child: Container(
+//             height: 150,
+//             width: 150,
+//             decoration: const BoxDecoration(
+//               color: Colors.black,
+//               shape: BoxShape.circle,
+//               boxShadow: [
+//                 BoxShadow(
+//                   color: Colors.white,
+//                   spreadRadius: 2,
+//                   blurRadius: 1,
+//                 ),
+//                 BoxShadow(spreadRadius: 4, color: Colors.green, blurRadius: 6),
+//               ],
+//             ),
+//             alignment: Alignment.center,
+//             child: const Text(
+//               'Go',
+//               style: TextStyle(
+//                   color: Colors.white,
+//                   fontWeight: FontWeight.bold,
+//                   fontSize: 40),
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// 2 ----> Dark Shadow Button
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         backgroundColor: blackColor,
+//         appBar: AppBar(
+//           backgroundColor: redColor,
+//           centerTitle: true,
+//           title: const Text(
+//             'Dark Shadow Button',
+//             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+//           ),
+//         ),
+//         body: Center(
+//           child: Container(
+//             height: 60,
+//             width: 250,
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.black,
+//               shape: BoxShape.rectangle,
+//               boxShadow: [
+//                 BoxShadow(spreadRadius: 2, color: redColor, blurRadius: 7),
+//               ],
+//               borderRadius: BorderRadius.circular(20),
+//             ),
+//             child: const Text(
+//               'Tap',
+//               style: TextStyle(
+//                   color: Colors.white,
+//                   fontWeight: FontWeight.w400,
+//                   fontSize: 22),
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+
+// 3 ----> A Shadow Button
+
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           backgroundColor: tealColor,
+//           centerTitle: true,
+//           title: const Text(
+//             'A Shadow Button',
+//             style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
+//           ),
+//         ),
+//         body: Center(
+//           child: Container(
+//             height: 80,
+//             width: 200,
+//             alignment: Alignment.center,
+//             decoration: BoxDecoration(
+//               color: Colors.white,
+//               shape: BoxShape.rectangle,
+//               boxShadow: [
+//                 BoxShadow(spreadRadius: 2, color: lightTealColor, blurRadius: 7),
+//               ],
+//               borderRadius: BorderRadius.circular(15),
+//             ),
+//             child: const Text(
+//               'Tap',
+//               style: TextStyle(
+//                   color: Colors.black,
+//                   fontWeight: FontWeight.w700,
+//                   fontSize: 30),
+//             ),
+//           ),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+//
