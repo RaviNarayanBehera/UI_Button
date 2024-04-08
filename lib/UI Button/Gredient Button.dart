@@ -20,7 +20,7 @@ void main() {
             width: 200,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: Colors.black,
+              // color: Colors.black,
               shape: BoxShape.rectangle,
               gradient: const LinearGradient(
                   colors: [
