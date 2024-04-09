@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -40,55 +39,13 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          MapList(
-              iconname: const Icon(
-                Icons.exit_to_app,
-                size: 35,
-                color: Colors.black,
-              ),
-              name: 'Exit'),
-          MapList(
-              iconname: const Icon(
-                Icons.play_arrow,
-                size: 35,
-                color: Colors.black,
-              ),
-              name: 'Play'),
-          MapList(
-              iconname: const Icon(
-                Icons.pause,
-                size: 35,
-                color: Colors.black,
-              ),
-              name: 'Pause'),
-          MapList(
-              iconname: const Icon(
-                Icons.stop,
-                size: 35,
-                color: Colors.black,
-              ),
-              name: 'Stop'),
-          MapList(
-              iconname: const Icon(
-                Icons.cancel,
-                size: 35,
-                color: Colors.black,
-              ),
-              name: 'Close'),
-          MapList(
-              iconname: const Icon(
-                Icons.delete,
-                size: 35,
-                color: Colors.black,
-              ),
-              name: 'Delete'),
-          MapList(
-              iconname: const Icon(
-                Icons.email,
-                size: 35,
-                color: Colors.black,
-              ),
-              name: 'Email'),
+          MapList(iconname: const Icon(Icons.exit_to_app, size: 35, color: Colors.black,), name: 'Exit'),
+          MapList(iconname: const Icon(Icons.play_arrow, size: 35, color: Colors.black,), name: 'Play'),
+          MapList(iconname: const Icon(Icons.pause, size: 35, color: Colors.black,), name: 'Pause'),
+          MapList(iconname: const Icon(Icons.stop, size: 35, color: Colors.black,), name: 'Stop'),
+          MapList(iconname: const Icon(Icons.cancel, size: 35, color: Colors.black,), name: 'Close'),
+          MapList(iconname: const Icon(Icons.delete, size: 35, color: Colors.black,), name: 'Delete'),
+          MapList(iconname: const Icon(Icons.email, size: 35, color: Colors.black,), name: 'Email'),
         ],
       ),
     );
