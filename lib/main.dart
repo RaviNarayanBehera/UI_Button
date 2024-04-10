@@ -1,150 +1,88 @@
 import 'package:flutter/material.dart';
+import 'package:ui_button/utils/Color.dart';
 
-void main() {
+void main()
+{
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Calc(),
+      home: DynamicList(),
     );
   }
 }
-class Calc extends StatefulWidget {
-  const Calc({super.key});
+
+class DynamicList extends StatefulWidget {
+  const DynamicList({super.key});
+
   @override
-  State<Calc> createState() => _CalcState();
+  State<DynamicList> createState() => _DynamicListState();
 }
 
-class _CalcState extends State<Calc> {
+class _DynamicListState extends State<DynamicList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: royalBlueColor,
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.blueAccent,
-        title: const Text('Calc', style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.w500),),
+        backgroundColor: royalBlueColor,
+        title: const Text('Dynamic List',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 25),),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: SingleChildScrollView(
+         physics: BouncingScrollPhysics(),
+        child: Column(
+          children: List.generate(l1.length, (index) => DynamicList(index: index+1) ),
+        )
+      ),
+      floatingActionButton: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Text('$count', style: const TextStyle(color: Colors.black, fontSize: 100, fontWeight: FontWeight.w600),),
-          Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      count -= 2;
-                    });
-                  },
-                  child: Container(
-                    height: 50,
-                    width: 150,
-                    margin: EdgeInsets.all(15),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Text('-2', style: TextStyle(color: Colors.black, fontSize: 25),
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      count += 2;
-                    });
-                  },
-                  child: Container(
-                    height: 50,
-                    width: 150,
-                    margin: EdgeInsets.all(15),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: const Text('+2', style: TextStyle(color: Colors.black, fontSize: 25),),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    count -= 4;
-                  });
-                },
-                child: Container(
-                  height: 50,
-                  width: 150,
-                  margin: EdgeInsets.all(15),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Text('-4', style: TextStyle(color: Colors.black, fontSize: 25),),
-                ),
-              ),
-              InkWell(
-                onTap: () {
-                  setState(() {
-                    count += 4;
-                  });
-                },
-                child: Container(
-                  height: 50,
-                  width: 150,
-                  margin: EdgeInsets.all(15),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Text('+4', style: TextStyle(color: Colors.black, fontSize: 25),),
-                ),
-              ),
-            ],
-          ),
-          InkWell(
-            onTap: () {
-              setState(() {
-                count = 0;
-              });
-            },
-            child: Container(
-              height: 50,
-              width: 150,
-              margin: EdgeInsets.all(15),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: const Text('Clear', style: TextStyle(color: Colors.black, fontSize: 25),),
-            ),
+          FloatingActionButton(onPressed: (){
+            setState(() {
+              l1.add('Hello');
+            });
+
+          },
+            child: const Icon(Icons.add),),
+          const SizedBox(width: 15,),
+          FloatingActionButton(onPressed: (){
+            setState(() {
+              l1.removeAt(l1.length-1);
+            });
+          },
+            child: const Icon(Icons.remove),
           ),
         ],
       ),
     );
   }
+
+  Container DynamicList({required index}) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+        height: 80,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: (index%2==0)?Colors.redAccent:Colors.amberAccent,
+          borderRadius: BorderRadius.circular(15),
+        ),
+      alignment: Alignment.center,
+      child: Container(
+        child: Text('$index',style: const TextStyle(color: Colors.black,fontSize: 30,fontWeight: FontWeight.w500),),
+      ),
+      );
+  }
 }
 
-int count = 0;
+List l1 = [];
+
+
+
+

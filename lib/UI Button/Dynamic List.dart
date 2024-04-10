@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_button/utils/Color.dart';
 
 void main()
 {
@@ -28,37 +29,32 @@ class _DynamicListState extends State<DynamicList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: royalBlueColor,
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.cyan.shade900,
-        title: Text('Dynamic List',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 25),),
+        backgroundColor: royalBlueColor,
+        title: const Text('Dynamic List',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 25),),
       ),
       body: SingleChildScrollView(
-        // physics: BouncingScrollPhysics(),
-        child: Container(
-          height: 80,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-          ),
+          physics: BouncingScrollPhysics(),
           child: Column(
-            children: List.generate(l1.length, (index) => MapList(name: 'Element',letter: '$index'),),
-          ),
-        ),
+            children: List.generate(l1.length, (index) => DynamicList(index: index+1) ),
+          )
       ),
       floatingActionButton: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           FloatingActionButton(onPressed: (){
             setState(() {
-              l1.add('hello');
+              l1.add('Hello');
             });
+
           },
             child: const Icon(Icons.add),),
           const SizedBox(width: 15,),
           FloatingActionButton(onPressed: (){
             setState(() {
-              nameList.removeAt(l1.length-1);
+              l1.removeAt(l1.length-1);
             });
           },
             child: const Icon(Icons.remove),
@@ -67,40 +63,22 @@ class _DynamicListState extends State<DynamicList> {
       ),
     );
   }
+
+  Container DynamicList({required index}) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+      height: 80,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: (index%2==0)?Colors.redAccent:Colors.amberAccent,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      alignment: Alignment.center,
+      child: Container(
+        child: Text('$index',style: const TextStyle(color: Colors.black,fontSize: 30,fontWeight: FontWeight.w500),),
+      ),
+    );
+  }
 }
 
 List l1 = [];
-
-List<String> nameList =[
-  'A',
-  'B',
-  'C',
-];
-
-
-Container MapList({required String name,required String letter}) {
-
-  return Container(
-    height: 85,
-    margin: const EdgeInsets.symmetric(vertical: 4),
-    color: Colors.purpleAccent,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        const SizedBox(
-          width: 10,
-        ),
-        Text(
-          '$name',
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-
-
-      ],
-    ),
-  );
-}
