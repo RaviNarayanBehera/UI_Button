@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_button/utils/Color.dart';
 
-void main()
-{
+void main() {
   runApp(MyApp());
 }
 
@@ -13,76 +11,87 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DynamicList(),
+      home: IconLists(),
     );
   }
 }
 
-class DynamicList extends StatefulWidget {
-  const DynamicList({super.key});
+class IconLists extends StatefulWidget {
+  const IconLists({super.key});
 
   @override
-  State<DynamicList> createState() => _DynamicListState();
+  State<IconLists> createState() => _IconListsState();
 }
 
-class _DynamicListState extends State<DynamicList> {
+class _IconListsState extends State<IconLists> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: royalBlueColor,
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: royalBlueColor,
-        title: const Text('Dynamic List',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 25),),
+        backgroundColor: Colors.grey,
+        title: const Text(
+          'Icons',
+          style: TextStyle(
+              color: Colors.black, fontSize: 25, fontWeight: FontWeight.w500),
+        ),
       ),
-      body: SingleChildScrollView(
-         physics: BouncingScrollPhysics(),
-        child: Column(
-          children: List.generate(l1.length, (index) => DynamicList(index: index+1) ),
-        )
-      ),
-      floatingActionButton: Row(
-        mainAxisSize: MainAxisSize.min,
+      body: Column(
         children: [
-          FloatingActionButton(onPressed: (){
-            setState(() {
-              l1.add('Hello');
-            });
-
-          },
-            child: const Icon(Icons.add),),
-          const SizedBox(width: 15,),
-          FloatingActionButton(onPressed: (){
-            setState(() {
-              l1.removeAt(l1.length-1);
-            });
-          },
-            child: const Icon(Icons.remove),
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10.5),
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  alignment: Alignment.center,
+                  child: const Icon(
+                    Icons.add,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10.5),
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  alignment: Alignment.center,
+                  child: const Icon(
+                    Icons.radio_button_checked,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 10),
+                  height: 100,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  alignment: Alignment.center,
+                  child: const Icon(
+                    Icons.arrow_back_ios_new,
+                    size: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
-
-  Container DynamicList({required index}) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
-        height: 80,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: (index%2==0)?Colors.redAccent:Colors.amberAccent,
-          borderRadius: BorderRadius.circular(15),
-        ),
-      alignment: Alignment.center,
-      child: Container(
-        child: Text('$index',style: const TextStyle(color: Colors.black,fontSize: 30,fontWeight: FontWeight.w500),),
-      ),
-      );
-  }
 }
-
-List l1 = [];
-
-
-
-
