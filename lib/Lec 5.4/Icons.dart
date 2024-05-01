@@ -106,7 +106,7 @@ class _Icons_ListState extends State<Icons_List> {
                     Iconlist(Iconname: Icons.apps),
                     Iconlist(
                         Iconname:
-                            Icons.signal_cellular_connected_no_internet_0_bar),
+                        Icons.signal_cellular_connected_no_internet_0_bar),
                     Iconlist(Iconname: Icons.wifi_lock),
                   ],
                 ),
@@ -135,4 +135,3 @@ Container Iconlist({required Iconname}) {
     ),
   );
 }
-
