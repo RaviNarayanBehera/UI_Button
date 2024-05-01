@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -50,7 +49,7 @@ class _homePageState extends State<homePage> {
               children: [
                 Container(
                   alignment: Alignment.centerRight,
-                  height: 640,
+                  height: 787,
                   width: 90,
                   decoration: const BoxDecoration(
                     color: Color(0xff212121),
@@ -58,7 +57,7 @@ class _homePageState extends State<homePage> {
                   child: Stack(
                       children:[ const Text(
                         '⚡',style: TextStyle(
-                          fontSize: 64,color: Colors.white
+                        fontSize: 64,
                       ),
                       ),]
                   ),
